@@ -59,42 +59,33 @@ def dfs_search(search_problem, depth_limit=100, node=None, solution=None):
 
     state = node.state
     solution.nodes_visited += 1
+    solution.path.append(state)
 
     if search_problem.goal_test(state):
-        solution.path.append(state)
         return solution
 
-    if depth_limit == 0:
-        solution.path = []
-        return solution
-
-    solution.path.append(state)
     children = search_problem.get_successors(state)
-    for child in children:
-        if child in solution.path:
-            continue
-        if dfs_search(search_problem, depth_limit-1, SearchNode(child, node), solution).path:
-            return solution
+    if len(solution.path) <= depth_limit:
+        for child in children:
+            if child in solution.path:
+                continue
+            solution = dfs_search(search_problem, depth_limit, SearchNode(child, node), solution)
+            if search_problem.goal_test(solution.path[-1]):
+                return solution
 
     solution.path.pop()
     return solution
 
 
-
-# and the dfs path checking functions
-
-
 def ids_search(search_problem, depth_limit=100):
-    # you write this part
-
     depth = 0
     node = SearchNode(search_problem.start_state)
     solution = SearchSolution(search_problem, "IDS")
 
-    while depth <= depth_limit:
-        res = dfs_search(search_problem, depth, node, solution)
+    while depth < depth_limit:
+        solution = dfs_search(search_problem, depth, node, solution)
+        if solution.path:
+            return solution
         depth += 1
-        if res:
-            return res
 
-    return None
+    return solution
