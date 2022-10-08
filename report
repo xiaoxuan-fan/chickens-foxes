@@ -1,0 +1,62 @@
+Iterative deepening visits much more nodes than BFS or DFS,
+because every time it restarts at the origin (it's doing repeated work).
+Because we are passing the same SearchSolution object around,
+we are accumulating the number of nodes visited across all runs.
+
+Below are results from running foxes.py
+----
+Chickens and foxes problem: (3, 3, 1)
+attempted with search method BFS
+number of nodes visited: 14
+solution length: 12
+path: [(3, 3, 1), (3, 1, 0), (3, 2, 1), (3, 0, 0), (3, 1, 1), (1, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]
+
+----
+Chickens and foxes problem: (3, 3, 1)
+attempted with search method DFS
+number of nodes visited: 14
+solution length: 12
+path: [(3, 3, 1), (3, 1, 0), (3, 2, 1), (3, 0, 0), (3, 1, 1), (1, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]
+
+----
+Chickens and foxes problem: (3, 3, 1)
+attempted with search method IDS
+number of nodes visited: 163
+solution length: 12
+path: [(3, 3, 1), (3, 1, 0), (3, 2, 1), (3, 0, 0), (3, 1, 1), (1, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]
+
+----
+Chickens and foxes problem: (5, 5, 1)
+attempted with search method BFS
+no solution found after visiting 12 nodes
+
+----
+Chickens and foxes problem: (5, 5, 1)
+attempted with search method DFS
+no solution found after visiting 24 nodes
+
+----
+Chickens and foxes problem: (5, 5, 1)
+attempted with search method IDS
+no solution found after visiting 2299 nodes
+
+----
+Chickens and foxes problem: (5, 4, 1)
+attempted with search method BFS
+number of nodes visited: 29
+solution length: 16
+path: [(5, 4, 1), (5, 2, 0), (5, 3, 1), (3, 3, 0), (4, 3, 1), (3, 2, 0), (3, 3, 1), (2, 2, 0), (3, 2, 1), (2, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]
+
+----
+Chickens and foxes problem: (5, 4, 1)
+attempted with search method DFS
+number of nodes visited: 23
+solution length: 18
+path: [(5, 4, 1), (5, 2, 0), (5, 3, 1), (4, 3, 0), (4, 4, 1), (3, 3, 0), (4, 3, 1), (3, 2, 0), (3, 3, 1), (2, 2, 0), (3, 2, 1), (2, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]
+
+----
+Chickens and foxes problem: (5, 4, 1)
+attempted with search method IDS
+number of nodes visited: 1105
+solution length: 16
+path: [(5, 4, 1), (5, 2, 0), (5, 3, 1), (3, 3, 0), (4, 3, 1), (3, 2, 0), (3, 3, 1), (2, 2, 0), (3, 2, 1), (2, 1, 0), (2, 2, 1), (0, 2, 0), (0, 3, 1), (0, 1, 0), (1, 1, 1), (0, 0, 0)]

@@ -1,4 +1,3 @@
-# try to change something
 class SearchSolution:
     def __init__(self, problem, search_method):
         self.problem_name = str(problem)
