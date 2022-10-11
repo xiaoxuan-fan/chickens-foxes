@@ -13,6 +13,7 @@ class SearchNode:
 
 
 # given a node, find its way back to the start node
+# return a list of states
 def backchain(node):
     path = [node.state]
     while node.parent:
