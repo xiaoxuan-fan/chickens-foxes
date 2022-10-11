@@ -12,7 +12,7 @@ class SearchNode:
         self.parent = parent
 
 
-# given a node, find its way back to the start node (in BFS)
+# given a node, find its way back to the start node
 def backchain(node):
     path = [node.state]
     while node.parent:
